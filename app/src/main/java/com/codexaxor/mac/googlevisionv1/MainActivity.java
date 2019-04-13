@@ -41,7 +41,10 @@ import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageActivity;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
+import java.text.Collator;
+
 public class MainActivity extends AppCompatActivity {
+
 
     EditText mResultEt;
     ImageView mPreviewIv;

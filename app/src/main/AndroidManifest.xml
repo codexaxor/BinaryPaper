@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".splashscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,12 +21,14 @@
             </intent-filter>
         </activity>
 
+
+        <activity android:name=".Menu" />
         <!--Image Crop Activity-->
 
         <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/AppTheme"/> <!-- optional (needed if default theme has no action bar) -->
 
-
+        <activity android:name=".MainActivity" />
 
     </application>
 

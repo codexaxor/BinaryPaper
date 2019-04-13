@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="SkyBlue">#afe4f9</color>
-    <color name="colorPrimary">#afe4f9</color> <!--bar color-->
+    <color name="colorPrimary">#6495ED</color> <!--bar color-->
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colormidnightblue">#191970</color>
