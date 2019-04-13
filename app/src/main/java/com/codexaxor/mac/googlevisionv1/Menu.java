@@ -9,6 +9,7 @@ import android.widget.Button;
 public class Menu extends AppCompatActivity {
 
     private Button button;
+    private Button button2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +20,14 @@ public class Menu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent =new Intent(Menu.this,MainActivity.class);
+                startActivity(intent);
+            }
+        });
+        button2=findViewById(R.id.button_name);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(Menu.this,About.class);
                 startActivity(intent);
             }
         });

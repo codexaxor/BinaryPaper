@@ -39,7 +39,7 @@ public class splashscreen extends AppCompatActivity {
 
         for(progress=20;progress<=100;progress=progress+20) {
             try {
-                Thread.sleep(1000);
+                Thread.sleep(900);
                 progressBar.setProgress(progress);
 
             } catch (InterruptedException e) {

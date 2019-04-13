@@ -1,7 +1,18 @@
 <resources>
     <string name="app_name">BINARY PAPER</string>
-    <string name="button_name">Augmented Reality</string>
+    <string name="button_name">About</string>
 
     <string name="button2">Text OCR</string>
     <string name="choose">Choose a language</string>
+
+    <string name="text">
+        Name: Kazi Taqi Tahmid
+        \n
+        ID:17.01.04.015
+        \n \n
+        Name: Mohammad Abu Yousuf Sajal
+        \n
+        ID:17.01.04.025
+
+    </string>
 </resources>
