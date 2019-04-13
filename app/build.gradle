@@ -36,5 +36,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-vision:16.2.0'
 
 
+    /// text export to pdf
+    implementation 'com.itextpdf:itextg:5.5.10'
 
 }
