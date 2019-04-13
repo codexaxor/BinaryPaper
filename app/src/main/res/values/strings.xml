@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">BINARY PAPER</string>
+    <string name="button_name">Augmented Reality</string>
+
+    <string name="button2">Text OCR</string>
+    <string name="choose">Choose a language</string>
 </resources>

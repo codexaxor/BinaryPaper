@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
+    <color name="SkyBlue">#afe4f9</color>
+    <color name="colorPrimary">#afe4f9</color> <!--bar color-->
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="colormidnightblue">#191970</color>
+    <color name="darkblue">#00008b</color>
+    <color name="colorNavy">#000080</color>
+    <color name="colorroyalblue">#4169e1</color>
+    <color name="teal">#008080</color>
+    <color name="BlueViolet">#8A2BE2</color>
+    <color name="LightSkyBlue">#93d4fb</color>
+
+    <color name="Gray">#808080</color>
+    <color name="Olive">#808000</color>
+    <color name="Purple">#800080</color>
+    <color name="Maroon">#800000</color>
+    <color name="Aquamarine">#7fffd4</color>
+    <color name="LightSlateGray">#778899</color>
+    <color name="SlateGray">#708090</color>
+    <color name="OliveDrab">#6B8E23</color>
+    <color name="SlateBlue">#6A5ACD</color>
+    <color name="DimGray">#696969</color>
+    <color name="MediumAquamarine">#1cb984</color>
+    <color name="CornflowerBlue">#6495ED</color>
+    <color name="CadetBlue">#5F9EA0</color>
 </resources>
