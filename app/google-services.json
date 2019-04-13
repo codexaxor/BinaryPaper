@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "594248388947",
+    "firebase_url": "https://visionv1-d2dee.firebaseio.com",
+    "project_id": "visionv1-d2dee",
+    "storage_bucket": "visionv1-d2dee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594248388947:android:a77f0edbf6d448cd",
+        "android_client_info": {
+          "package_name": "com.codexaxor.mac.googlevisionv1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594248388947-vb7blcqst9v6ce2cre8hpm1nod8875jr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.codexaxor.mac.googlevisionv1",
+            "certificate_hash": "253c5bdecfb1baf3e0bfe8793c6a9dfbac467226"
+          }
+        },
+        {
+          "client_id": "594248388947-i1pv8cdopum2iblbish7ouibbdubt3mn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3NCv9q4aa-QF7iFlp_07aTdYbiAhlQR0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "594248388947-i1pv8cdopum2iblbish7ouibbdubt3mn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -14,6 +14,8 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Environment;
+import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -27,6 +29,8 @@ import android.os.Bundle;
 import android.util.SparseArray;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -34,25 +38,35 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.vision.Frame;
+import com.google.android.gms.vision.text.Text;
 import com.google.android.gms.vision.text.TextBlock;
 import com.google.android.gms.vision.text.TextRecognizer;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageActivity;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
+import java.io.FileOutputStream;
 import java.text.Collator;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
 
     EditText mResultEt;
     ImageView mPreviewIv;
+    Button pdfSvBtn;
 
     private static final int CAMERA_REQUEST_CODE = 200;
     private static final int STORAGE_REQUEST_CODE = 400;
     private static final int IMAGE_PICK_GALLERY_CODE = 1000;
     private static final int IMAGE_PICK_CAMERA_CODE = 1001;
+    private static final int STORAGE_CODE = 3000;
+
 
     String cameraPermission[];
     String storagePermission[];
@@ -70,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
 
         mResultEt = findViewById(R.id.resultEt);
         mPreviewIv = findViewById(R.id.imageIv);
+        pdfSvBtn = findViewById(R.id.pdfBtn);
 
         /// Camera Permission
 
@@ -79,32 +94,37 @@ public class MainActivity extends AppCompatActivity {
         storagePermission = new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
 
-        // Notification System
 
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-//        {
-//            NotificationChannel channel = new NotificationChannel("MyNotifications", "MyNotifications", NotificationManager.IMPORTANCE_DEFAULT);
-//            NotificationManager manager = getSystemService(NotificationManager.class);
-//            manager.createNotificationChannel(channel);
-//        }
-//
-//        FirebaseMessaging.getInstance().subscribeToTopic("general")
-//                .addOnCompleteListener(new OnCompleteListener<Void>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<Void> task) {
-//                        String msg = "SUCCESSFUL";
-//                        if (!task.isSuccessful()) {
-//                            msg = "FAILED";
-//                        }
-//                        Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
-//                    }
-//                });
+        /// pdf button handle
+        pdfSvBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+                {
+                    if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED)
+                    {
+                        String[] permissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
+
+                        requestPermissions(permissions, STORAGE_CODE);
+                    }
+                    else{
+                        savePdf();
+                    }
+                }
+                else
+                {
+                    savePdf();
+                }
+            }
+
+
+
+        });
+
 
     }
 
-
     // actionBar MEnu
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -231,6 +251,38 @@ public class MainActivity extends AppCompatActivity {
         return result && result1;
     }
 
+    private void savePdf() {
+        Document mDoc = new Document();
+
+
+        /// pdf File Name
+        String mFileName = new SimpleDateFormat("yyyMMdd_HHmmss", Locale.getDefault()).format(System.currentTimeMillis());
+
+
+        /// pdf File Path
+        String mFilePath = Environment.getExternalStorageDirectory() + "/" + mFileName + ".pdf";
+
+        try{
+            PdfWriter.getInstance(mDoc, new FileOutputStream(mFilePath));
+            mDoc.open();
+            /// get Text from editField
+            String mText = mResultEt.getText().toString();
+
+            /// copyWriter
+            mDoc.addAuthor("Binary Paper");
+            ///add text
+            mDoc.add((new Paragraph(mText)));
+            ///close document
+            mDoc.close();
+            ///Show Message for successfully done
+            Toast.makeText(this, mFileName+".pdf\n is saved to \n"+ mFilePath, Toast.LENGTH_SHORT).show();
+        }
+        catch (Exception e){
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+
+        }
+    }
+
 
     /// Handle Permission Result
 
@@ -269,6 +321,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+
         if (resultCode == RESULT_OK){
 
             if (requestCode == IMAGE_PICK_GALLERY_CODE){
@@ -283,6 +336,9 @@ public class MainActivity extends AppCompatActivity {
 
                 CropImage.activity(image_uri).setGuidelines(CropImageView.Guidelines.ON).start(this);
 
+            }
+            if (requestCode == STORAGE_CODE){
+                savePdf();
             }
 
 
@@ -342,5 +398,25 @@ public class MainActivity extends AppCompatActivity {
             }
 
         }
+//        if (requestCode == STORAGE_CODE){
+//
+//            if (){
+//                // crop image from gallery
+//
+//                CropImage.activity(data.getData()).setGuidelines(CropImageView.Guidelines.ON).start(this);
+//
+//            }
+//
+//            if (requestCode == IMAGE_PICK_CAMERA_CODE){
+//                // crop image from gallery
+//
+//                CropImage.activity(image_uri).setGuidelines(CropImageView.Guidelines.ON).start(this);
+//
+//            }
+//
+//
+//        }
     }
+
+
 }
