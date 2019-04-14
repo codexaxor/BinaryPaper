@@ -52,7 +52,7 @@
 
                     <Button
                         android:id="@+id/pdfBtn"
-                        android:text="export to pdf"
+                        android:text="pdf"
                         android:layout_gravity="end"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />

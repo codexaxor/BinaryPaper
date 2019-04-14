@@ -2,8 +2,8 @@
     <string name="app_name">BINARY PAPER</string>
     <string name="button_name">About</string>
 
-    <string name="button2">Text OCR</string>
-    <string name="choose">Choose a language</string>
+    <string name="button2">TEXT OCR</string>
+    <string name="choose">MAKE YOUR CHOICE</string>
 
     <string name="text">
         Name: Kazi Taqi Tahmid
