@@ -398,24 +398,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
         }
-//        if (requestCode == STORAGE_CODE){
-//
-//            if (){
-//                // crop image from gallery
-//
-//                CropImage.activity(data.getData()).setGuidelines(CropImageView.Guidelines.ON).start(this);
-//
-//            }
-//
-//            if (requestCode == IMAGE_PICK_CAMERA_CODE){
-//                // crop image from gallery
-//
-//                CropImage.activity(image_uri).setGuidelines(CropImageView.Guidelines.ON).start(this);
-//
-//            }
-//
-//
-//        }
     }
 
 
