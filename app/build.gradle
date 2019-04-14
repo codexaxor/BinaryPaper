@@ -32,8 +32,8 @@ dependencies {
     /// image crop library
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.7.+'
 
-    /// image to Text Library
-    implementation 'com.google.android.gms:play-services-vision:16.2.0'
+    /// image to Text Library  /// recommended version com.google.android.gms:play-services-vision:16.2.0
+    implementation 'com.google.android.gms:play-services-vision:17.0.2'
 
 
     /// text export to pdf
